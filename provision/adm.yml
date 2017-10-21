@@ -1,9 +1,6 @@
 ---
 
 - name: provision adm vm
-  tasks:
-    - name: show remote_role
-      debug: var=remote_role
   hosts: all
   become: yes
   roles:

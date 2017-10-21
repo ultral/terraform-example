@@ -14,6 +14,8 @@ example_recreate_$(VAGRANTFILE): example_destroy_$(VAGRANTFILE) example_start_$(
 
 create: example_start_$(VAGRANTFILE)
 
+provision: example_provision_$(VAGRANTFILE)
+
 recreate: example_recreate_$(VAGRANTFILE)
 
 destroy: example_destroy_$(VAGRANTFILE)

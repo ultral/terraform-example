@@ -1,33 +1,4 @@
 ---
 
-- name: install rpms
-  yum:
-    name="{{ item }}"
-    state=latest
-    update_cache=yes
-  with_items:
-    - binutils
-    - docker
-    - make
-    - ruby
-    - git
-
-- name: prepare ssh dir
-  file:
-    dest: /root/.ssh
-    state: directory
-    owner: root
-    group: root
-    mode: 0750
-
-- name: prepare ssh keys
-  command: "ssh-keygen -b 4098 -t rsa -q -P '' -f /root/.ssh/id_rsa"
-  args:
-    creates: /root/.ssh/id_rsa
-
-- name: add gems
-  command: "gem install {{ item }}"
-  with_items:
-    - json_pure
-    - serverspec
-    - rake
+- include: common.yml
+- include: terraform.yml

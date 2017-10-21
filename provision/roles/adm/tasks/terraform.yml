@@ -1,0 +1,24 @@
+---
+- name: show terraform version
+  debug: var=terraform_source
+
+- name: install rpms
+  yum:
+    name="{{ item }}"
+    state=latest
+    update_cache=yes
+  with_items:
+    - unzip
+
+- name: Download terraform
+  get_url:
+    url: "{{ terraform_source }}"
+    dest: "/root/terraform.zip"
+    mode: 0440
+
+- name: Unarchive terraform
+  unarchive:
+    src: /root/terraform.zip
+    dest: /usr/sbin
+    mode: 0755
+    remote_src: yes
