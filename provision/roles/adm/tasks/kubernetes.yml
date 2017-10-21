@@ -1,0 +1,32 @@
+---
+
+- name: Add repository for docker
+  command: "yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo"
+
+- name: skip_if_unavailable repo docker-ce-edge
+  command: "yum-config-manager --save --setopt=docker.skip_if_unavailable=true"
+
+- name: install rpm for docker
+  yum:
+    name="{{ item }}"
+    state=latest
+    update_cache=yes
+  with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
+
+- name: install docker
+  yum:
+    name="{{ item }}"
+    state=latest
+    update_cache=yes
+  with_items:
+    - docker-ce
+    - docker-python
+    - python-docker-py
+    - python-docker-pycreds
+    - kubernetes
+
+- name: enable docker
+  service: name=docker enabled=yes state=started

@@ -7,11 +7,9 @@
     update_cache=yes
   with_items:
     - binutils
-    - docker
     - make
     - ruby
     - git
-    - kubernetes
 
 - name: prepare ssh dir
   file:
