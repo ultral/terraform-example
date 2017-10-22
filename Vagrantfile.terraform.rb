@@ -13,7 +13,7 @@ prepare_ssh = %(
   echo '#{ssh_public_key}' >> /root/.ssh/authorized_keys
 )
 run_tests = 'cd /vagrant/serverspec && /usr/local/bin/rake spec'
-run_terraform = "ssh #{SSH_OPTS} root@#{VM_IP} 'make -C /vagrant terraform'"
+run_terraform = 'sudo make -C /vagrant terraform'
 
 Vagrant.configure('2') do |config|
   config.vm.synced_folder '.', '/vagrant'
