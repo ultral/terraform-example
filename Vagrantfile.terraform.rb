@@ -22,7 +22,7 @@ Vagrant.configure('2') do |config|
       host.vm.hostname = name
 
       host.vm.provider 'virtualbox' do |box|
-        box.memory = 2048
+        box.memory = 3072
         box.cpus = 2
         box.customize ['modifyvm', :id,
                        '--nic1', 'nat',
