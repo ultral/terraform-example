@@ -51,3 +51,9 @@
     MINIKUBE_HOME: /root
     CHANGE_MINIKUBE_NONE_USER: true
     KUBECONFIG: /root/.kube/config
+
+- name: set minikube vars
+  copy:
+    src: profile
+    dest: /root/.profile
+    mode: 0644

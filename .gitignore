@@ -3,3 +3,10 @@
 *.retry
 *.box
 .vagrant
+.terraform/
+terraform/.terraform/
+terraform/.terraform.tfstate.lock
+*.tfstate
+*.tfstate.*.backup
+*.tfstate.backup
+terraform.tfvars
