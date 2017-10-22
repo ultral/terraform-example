@@ -1,1 +1,2 @@
 terraform_source: https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip
+minikube_source: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64

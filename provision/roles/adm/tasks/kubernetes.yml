@@ -9,6 +9,45 @@
     - lvm2
     - docker
     - kubernetes
+    - bridge-utils
 
 - name: enable docker
   service: name=docker enabled=yes state=started
+
+- name: Download minikube
+  get_url:
+    url: "{{ minikube_source }}"
+    dest: /usr/local/bin/minikube
+    mode: 0755
+
+- name: prepare kube dir
+  file:
+    dest: /root/.kube
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: prepare kube config dir
+  file:
+    dest: /root/.kube
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: prepare kube config file
+  copy:
+    content: ""
+    dest: /root/.kube/config
+    force: no
+    mode: 0755
+
+- name: start minikube
+  command: /usr/local/bin/minikube start --vm-driver=none
+  environment:
+    MINIKUBE_WANTUPDATENOTIFICATION: false
+    MINIKUBE_WANTREPORTERRORPROMPT: false
+    MINIKUBE_HOME: /root
+    CHANGE_MINIKUBE_NONE_USER: true
+    KUBECONFIG: /root/.kube/config
