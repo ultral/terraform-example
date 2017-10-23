@@ -32,6 +32,7 @@ terraform:
 	cd terraform ;\
 	terraform init ;\
 	terraform apply ;\
-	curl -s $(terraform output lb_ip)
+	minikube service $(terraform output name) --url ;\
+	curl $(minikube service $(terraform output name) --url)
 
 .PHONY: help create recreate destroy terraform

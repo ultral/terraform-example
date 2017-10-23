@@ -1,3 +1,3 @@
-output "lb_ip" {
-  value = "${kubernetes_service.echo.load_balancer_ingress.0.ip}"
+output "name" {
+  value = "${kubernetes_service.echo.metadata.0.name}"
 }
