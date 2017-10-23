@@ -11,12 +11,12 @@ resource "kubernetes_pod" "echo" {
 
   spec {
     container {
-      image = "hashicorp/http-echo:0.2.3"
+      image = "hashicorp/http-echo:0.2.1"
       name  = "example2"
-      args = ["-listen=:80", "-text='Hello World'"]
+      args = ["-listen=:88", "-text='${var.text}'"]
 
       port {
-        container_port = 80
+        container_port = 88
       }
     }
   }
@@ -34,13 +34,10 @@ resource "kubernetes_service" "echo" {
 
     port {
       port        = 80
-      target_port = 80
+      target_port = 88
     }
 
     type = "NodePort"
   }
 }
 
-output "lb_ip" {
-  value = "${kubernetes_service.echo.load_balancer_ingress.0.ip}"
-}
