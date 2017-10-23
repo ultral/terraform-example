@@ -1,4 +1,6 @@
-provider "kubernetes" {}
+provider "kubernetes" {
+  config_context = "minikube"
+}
 
 resource "kubernetes_pod" "echo" {
   metadata {

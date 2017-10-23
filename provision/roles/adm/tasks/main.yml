@@ -1,5 +1,6 @@
 ---
 
 - include: common.yml
-- include: kubernetes.yml
+- include: docker.yml
+- include: minikube.yml
 - include: terraform.yml

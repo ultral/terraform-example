@@ -1,2 +1,4 @@
 terraform_source: https://releases.hashicorp.com/terraform/0.10.7/terraform_0.10.7_linux_amd64.zip
 minikube_source: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+kubectl_source: https://storage.googleapis.com/kubernetes-release/release/v1.8.1/bin/linux/amd64/kubectl
+docker_repo: https://download.docker.com/linux/centos/docker-ce.repo

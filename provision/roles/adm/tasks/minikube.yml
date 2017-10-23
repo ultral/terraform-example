@@ -1,23 +1,15 @@
 ---
-- name: install rpms for docker
-  yum:
-    name="{{ item }}"
-    state=latest
-    update_cache=yes
-  with_items:
-    - device-mapper-persistent-data
-    - lvm2
-    - docker
-    - kubernetes
-    - bridge-utils
-
-- name: enable docker
-  service: name=docker enabled=yes state=started
 
 - name: Download minikube
   get_url:
     url: "{{ minikube_source }}"
     dest: /usr/local/bin/minikube
+    mode: 0755
+
+- name: Download minikube
+  get_url:
+    url: "{{ kubectl_source }}"
+    dest: /usr/local/bin/kubectl
     mode: 0755
 
 - name: prepare kube dir
