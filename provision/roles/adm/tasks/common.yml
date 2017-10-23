@@ -1,5 +1,20 @@
 ---
 
+- name: swap - disable swap
+  command: swapoff --all
+  ignore_errors: yes
+
+- name: set max user instances
+  lineinfile: >
+    create=yes
+    dest=/etc/sysctl.d/60-user.conf
+    group=root
+    line="fs.inotify.max_user_instances = 8192"
+    mode="0644"
+    owner=root
+    regexp="^fs.inotify.max_user_instances"
+    state=present
+
 - name: install rpms
   yum:
     name="{{ item }}"
