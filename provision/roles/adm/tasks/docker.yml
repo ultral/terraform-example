@@ -1,0 +1,31 @@
+---
+
+- name: install rpms for docker
+  yum:
+    name="{{ item }}"
+    state=latest
+    update_cache=yes
+  with_items:
+    - device-mapper-persistent-data
+    - lvm2
+    - bridge-utils
+
+- name: Add repository for docker
+  get_url:
+    url: "{{ docker_repo }}"
+    dest: /etc/yum.repos.d/docker-ce.repo
+    mode: 0755
+
+- name: install docker
+  yum:
+    name="{{ item }}"
+    state=latest
+    update_cache=yes
+  with_items:
+    - docker-ce
+    - docker-python
+    - python-docker-py
+    - python-docker-pycreds
+
+- name: enable docker
+  service: name=docker enabled=yes state=started
