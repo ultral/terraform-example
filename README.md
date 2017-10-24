@@ -16,7 +16,7 @@ Before run please install:
 # Run it
 
 ```
-make provision
+vagrant up
 ```
 
 It will be created VM with default IP `192.168.56.123` and copy your public ssh key if exist.
