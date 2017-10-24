@@ -1,5 +1,5 @@
 provider "kubernetes" {
-  config_context = "${terraform.workspace == "default" ? "minikube" : "gke_hc-terraform-testing_us-central1-a"}"
+  config_context = "${terraform.workspace == "default" ? "minikube" : "gke_tutorial"}"
 }
 
 resource "kubernetes_replication_controller" "echo" {

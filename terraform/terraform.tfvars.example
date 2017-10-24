@@ -1,0 +1,4 @@
+region = "europe-west1"
+region_zone = "europe-west1-d"
+project_name = "my-project-id-123"
+credentials_file_path = "~/.gcloud/terraform.json"
