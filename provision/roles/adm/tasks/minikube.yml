@@ -6,7 +6,7 @@
     dest: /usr/local/bin/minikube
     mode: 0755
 
-- name: Download minikube
+- name: Download kubectl
   get_url:
     url: "{{ kubectl_source }}"
     dest: /usr/local/bin/kubectl
