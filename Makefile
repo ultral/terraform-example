@@ -32,7 +32,7 @@ terraform:
 	cd terraform ;\
 	terraform init ;\
 	terraform apply ;\
-	minikube service $(terraform output name) --url ;\
-	curl $(minikube service $(terraform output name) --url)
+	/usr/local/bin/minikube service $(terraform output name) --url ;\
+	curl $(/usr/local/bin/minikube service $(terraform output name) --url)
 
 .PHONY: help create recreate destroy terraform
