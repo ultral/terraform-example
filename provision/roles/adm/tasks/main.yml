@@ -4,3 +4,4 @@
 - include: docker.yml
 - include: minikube.yml
 - include: terraform.yml
+- include: gcloud.yml
