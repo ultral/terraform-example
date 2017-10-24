@@ -32,6 +32,7 @@ destroy: example_destroy_$(VAGRANTFILE)
 terraform:
 	cd terraform ;\
 	terraform init ;\
+	terraform plan ;\
 	terraform apply ;\
 	SERVICE_NAME=`terraform output name` ;\
 	minikube service $$SERVICE_NAME --url ;\
