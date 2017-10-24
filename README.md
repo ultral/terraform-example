@@ -2,7 +2,7 @@
 
 It's a small demo 
 1. Create [VirtualBox](https://www.virtualbox.org/) VM via [Vagrant](https://www.vagrantup.com/)
-2. Provision VM vi [ansible](https://www.ansible.com/)
+2. Provision VM via [Ansible](https://www.ansible.com/)
 3. Install [minikube](https://github.com/kubernetes/minikube)
 4. Check VM provision via [serverspec](http://serverspec.org/)
 5. Setup hello-world application via [terraform](https://www.terraform.io/)
@@ -19,7 +19,7 @@ Before run please install:
 vagrant up
 ```
 
-It will be created VM with default IP `192.168.56.123` and copy your public ssh key if exist.
+This will create a virtual machine with the specified IP address (`192.168.56.123`), also it will copy your public SSH key if it exists.
 
 ## VM custom IP
 
