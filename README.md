@@ -7,6 +7,8 @@ It's a small demo
 4. Check VM provision via [serverspec](http://serverspec.org/)
 5. Setup hello-world application via [terraform](https://www.terraform.io/)
 
+Also you can read [howto](https://habrahabr.ru/post/340884/) use it and deploy to [cloud.google.com/](https://cloud.google.com/)
+
 # Prepare
 
 Before run please install:
