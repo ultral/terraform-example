@@ -1,5 +1,6 @@
 TESTVM := $(if $(TESTVM),$(TESTVM),terraform)
 VAGRANTFILE=$(TESTVM:%=Vagrantfile.%.rb)
+export PATH := /usr/local/bin/:$(PATH)
 
 help:
 	@echo "VM_IP=1.1.1.1 make create - create new example VM"
@@ -32,7 +33,8 @@ terraform:
 	cd terraform ;\
 	terraform init ;\
 	terraform apply ;\
-	/usr/local/bin/minikube service $(terraform output name) --url ;\
-	curl $(/usr/local/bin/minikube service $(terraform output name) --url)
+	SERVICE_NAME=`terraform output name` ;\
+	minikube service $$SERVICE_NAME --url ;\
+	curl `minikube service $$SERVICE_NAME --url`
 
 .PHONY: help create recreate destroy terraform
