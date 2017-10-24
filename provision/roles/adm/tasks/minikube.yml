@@ -43,6 +43,8 @@
     MINIKUBE_HOME: /root
     CHANGE_MINIKUBE_NONE_USER: true
     KUBECONFIG: /root/.kube/config
+  args:
+    creates: /root/.kube/config
 
 - name: set minikube vars
   copy:
