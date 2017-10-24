@@ -1,0 +1,23 @@
+---
+
+- name: set google-cloud-sdk repo
+  copy:
+    src: google-cloud-sdk.repo
+    dest: /etc/yum.repos.d/google-cloud-sdk.repo
+    mode: 0644
+
+- name: install rpms
+  yum:
+    name="{{ item }}"
+    state=latest
+    update_cache=yes
+  with_items:
+    - google-cloud-sdk
+
+- name: prepare gcloud private dir
+  file:
+    dest: /root/.gcloud
+    state: directory
+    owner: root
+    group: root
+    mode: 0600
