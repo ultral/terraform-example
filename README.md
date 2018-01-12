@@ -1,6 +1,6 @@
 # General
 
-It's a small demo 
+It's a small demo. Also you can read [it](https://habrahabr.ru/post/340884/)
 1. Create [VirtualBox](https://www.virtualbox.org/) VM via [Vagrant](https://www.vagrantup.com/)
 2. Provision VM via [Ansible](https://www.ansible.com/)
 3. Install [minikube](https://github.com/kubernetes/minikube)
